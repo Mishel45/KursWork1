@@ -3,7 +3,7 @@ public class Employee {
     private String lastFirstName;
     private int departmentNumber;
     private int salary;
-    private int idCont = 0;
+    private static int idCont = 0;
     private int id;
 
 
@@ -26,7 +26,7 @@ public class Employee {
         return this.departmentNumber;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return this.salary;
     }
 
@@ -34,12 +34,12 @@ public class Employee {
         this.departmentNumber = departmentNumber;
     }
 
-    public void setSalary(int i) {
+    public double setSalary(int i) {
         this.salary = salary;
+        return 0;
     }
 
     public String toString() {
-
         return "Сотрудник " + lastFirstName + " Номер отдела: " + departmentNumber + " Зарплата: "
                 + salary + " рублей.";
     }

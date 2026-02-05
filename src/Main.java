@@ -14,7 +14,6 @@ public class Main {
         Employee employee7 = new Employee("Гадов П.К.", 4, 450);
         Employee employee8 = new Employee("Шубина А.П.", 4, 350);
 
-
         System.out.println(employee1);
         System.out.println(employee2);
         System.out.println(employee3);
@@ -67,9 +66,36 @@ public class Main {
         int employeeNumber = 3;
         System.out.println(EmployeeBook.salaryLess(wage, employeeNumber));
 
+        System.out.println();
+        Employee employee9 = new Employee("Кошкин А.В.", 4, 430);
+        System.out.println(EmployeeBook.isEmployeeInArray(employee1));
+        System.out.println(EmployeeBook.isEmployeeInArray(employee9));
+
+        System.out.println();
+        System.out.println(EmployeeBook.fillingEmployeeBook(employee9));
+        employeeBook.printAllEmployees();
+
+        System.out.println();
+        System.out.println(EmployeeBook.getEmployeeById(9));
+
+        System.out.println();
+        Employee employee10 = new Employee("Кошкин А.В.", 4, 430);
+        Employee employe11 = new Employee("Кошкин А.В.", 4, 430);
+        EmployeeBook employeeBook1 = new EmployeeBook();
+        EmployeeBook.fillingEmployeeBook(employee1);
+        EmployeeBook.fillingEmployeeBook(employee2);
+        EmployeeBook.fillingEmployeeBook(employee3);
+        EmployeeBook.fillingEmployeeBook(employee4);
+        EmployeeBook.fillingEmployeeBook(employee5);
+        EmployeeBook.fillingEmployeeBook(employee6);
+        EmployeeBook.fillingEmployeeBook(employee7);
+        EmployeeBook.fillingEmployeeBook(employee8);
+        EmployeeBook.fillingEmployeeBook(employee9);
+        EmployeeBook.fillingEmployeeBook(employee10);
+
+        employeeBook.printAllEmployees();
+
     }
-
-
 }
 
 

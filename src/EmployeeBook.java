@@ -93,7 +93,6 @@ public class EmployeeBook {
                             + employee.getDepartmentNumber() + " зарплата больше " + salaryFigure + " рублей."
                             + employee.printShortInfo();
                 }
-
             }
         }
         return "";
@@ -118,11 +117,41 @@ public class EmployeeBook {
             }
             i++;
         }
-        result.append("Вот первые " + employeeNumber + " сотрудника(ов), имеющих зарплату меньше " + wage + ": ");
-    return result.toString();
+        result.append("Вот первые " + employeeNumber + " сотрудника(ов), имеющих зарплату меньше "
+                + wage + " рублей.");
+        return result.toString();
     }
 
+    public static boolean isEmployeeInArray(Employee employeeToCheck) {
+        for (Employee employee : employeeCard) {
+            if (employee != null && employee.equals(employeeToCheck)) {
+                System.out.println("Сравниваем "+employee +" и " +employeeToCheck);
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public static boolean fillingEmployeeBook(Employee employee) {
+        for (int i = 0; i < employeeCard.length; i++) {
+            if (employeeCard[i] == null) {
+                employeeCard[i] = employee;
+                System.out.println("Сотрудник внесен в книгу сотрудников.");
+                return true;
+            }
+        }
+        System.out.println("Массив заполнен.");
+        return false;
+    }
+
+    public static Employee getEmployeeById(int id) {
+        for (Employee employee : employeeCard) {
+            if (employee != null && employee.getId() == id) {
+                return employee;
+            }
+        }
+        return null;
+    }
 }
 
 
