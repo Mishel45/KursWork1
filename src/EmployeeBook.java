@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class EmployeeBook {
     public static Employee[] employeeCard;
 
@@ -87,16 +89,15 @@ public class EmployeeBook {
                     continue;
                 } else if (employee.getSalary() > salaryFigure) {
                     return "У сотрудника: " + employee.getLastFirstName() + " из отдела № "
-                            + employee.getDepartmentNumber() + " зарплата больше " + salaryFigure + " рублей."
-                            + employee.printShortInfo();
+                            + employee.getDepartmentNumber() + " зарплата больше " + salaryFigure + " рублей.";
                 }
             }
         }
         return "";
     }
 
-    public static String salaryLess(int wage, int employeeNumber) {
-        StringBuilder result = new StringBuilder();
+    public static String[] salaryLess(int wage, int employeeNumber) {
+        String[] result = new String[employeeNumber];
         int i = 0;
         int count = 0;
         while (i < employeeCard.length && count < employeeNumber) {
@@ -108,15 +109,15 @@ public class EmployeeBook {
                     i++;
                     continue;
                 } else {
+                    result[count] = employee.getLastFirstName();
                     count++;
-                    result.append(employee.printShortInfo());
                 }
             }
             i++;
         }
-        result.append("Вот первые " + employeeNumber + " сотрудника(ов), имеющих зарплату меньше "
-                + wage + " рублей.");
-        return result.toString();
+        System.out.println("Вот первые " + employeeNumber + " сотрудника(ов), имеющих зарплату меньше "
+                + wage + " рублей." + Arrays.toString(result));
+        return result;
     }
 
     public static boolean isEmployeeInArray(Employee employeeToCheck) {
@@ -150,11 +151,4 @@ public class EmployeeBook {
         return null;
     }
 }
-
-
-
-
-
-
-
 

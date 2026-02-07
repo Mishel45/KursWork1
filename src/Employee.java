@@ -1,12 +1,10 @@
 public class Employee {
 
-    public double setSalary;
     private String lastFirstName;
     private int departmentNumber;
     private double salary;
     private static int idCont = 0;
     private int id;
-
 
     public Employee(String lastFirstName, int departmentNumber, int salary) {
         this.lastFirstName = lastFirstName;
@@ -44,9 +42,8 @@ public class Employee {
                 + salary + " рублей.";
     }
 
-    public String printShortInfo() {
+    public void printShortInfo() {
         System.out.println("Сотрудник " + lastFirstName + " Зарплата: " + salary);
-        return null;
     }
 
     @Override

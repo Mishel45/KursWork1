@@ -67,7 +67,7 @@ public class Main {
         System.out.println();
         int wage = 350;
         int employeeNumber = 3;
-        System.out.println(EmployeeBook.salaryLess(wage, employeeNumber));
+        EmployeeBook.salaryLess(wage, employeeNumber);
 
         System.out.println();
         Employee employee9 = new Employee("Кошкин А.В.", 4, 430);
