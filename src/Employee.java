@@ -1,8 +1,9 @@
 public class Employee {
-    public String getLastFirstName;
+
+    public double setSalary;
     private String lastFirstName;
     private int departmentNumber;
-    private int salary;
+    private double salary;
     private static int idCont = 0;
     private int id;
 
@@ -34,9 +35,8 @@ public class Employee {
         this.departmentNumber = departmentNumber;
     }
 
-    public double setSalary(int i) {
+    public void setSalary(double salary) {
         this.salary = salary;
-        return 0;
     }
 
     public String toString() {

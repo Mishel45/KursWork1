@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -33,7 +35,7 @@ public class Main {
         System.out.println();
 
         EmployeeBook employeeBook = new EmployeeBook();
-        EmployeeBook.employeeCard[0] = employee1;
+        employeeBook.employeeCard[0] = employee1;
         employeeBook.employeeCard[1] = employee2;
         employeeBook.employeeCard[2] = employee3;
         employeeBook.employeeCard[3] = employee4;
@@ -48,13 +50,14 @@ public class Main {
 
         System.out.println();
         String taxSystem = "PROPORTIONAL";
-        System.out.println(EmployeeBook.calculateTax(taxSystem));
-        System.out.println(EmployeeBook.calculateTax("PROGRESSIVE"));
+        System.out.println(Arrays.toString(employeeBook.calculateTax(taxSystem)));
+        System.out.println(Arrays.toString(employeeBook.calculateTax("PROGRESSIVE")));
 
         System.out.println();
         int bonusSalary = 10;
         int bonusDepartmentNumber = 4;
-        System.out.println(EmployeeBook.salaryIncrease(bonusSalary, bonusDepartmentNumber));
+        employeeBook.increaseSalary(bonusSalary, bonusDepartmentNumber);
+        employeeBook.printAllEmployees();
 
         System.out.println();
         int numberDepartment = 1;
@@ -94,7 +97,6 @@ public class Main {
         EmployeeBook.fillingEmployeeBook(employee10);
 
         employeeBook.printAllEmployees();
-
     }
 }
 

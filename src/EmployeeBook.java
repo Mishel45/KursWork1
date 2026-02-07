@@ -1,8 +1,6 @@
 public class EmployeeBook {
     public static Employee[] employeeCard;
 
-    private String methodTaxation;
-
     public EmployeeBook() {
         this.employeeCard = new Employee[10];
     }
@@ -31,9 +29,10 @@ public class EmployeeBook {
         return totalSalary / count;
     }
 
-    public static String calculateTax(String taxSystem) {
-        StringBuilder result = new StringBuilder();
+    public double[] calculateTax(String taxSystem) {
+        double[] result = new double[employeeCard.length];
         double tax = 0;
+        int i = 0;
         for (Employee employee : employeeCard) {
             if (employee == null) {
                 break;
@@ -41,29 +40,31 @@ public class EmployeeBook {
                 switch (taxSystem) {
                     case "PROPORTIONAL":
                         tax = employee.getSalary() * 13 / 100;
+                        result[i] = tax;
+                        i++;
                         break;
                     case "PROGRESSIVE":
                         if (employee.getSalary() < 150 && employee.getSalary() > 0) {
                             tax = employee.getSalary() * 13 / 100;
+                            result[i] = tax;
+                            i++;
                         } else if (employee.getSalary() < 350 && employee.getSalary() >= 150) {
                             tax = employee.getSalary() * 17 / 100;
+                            result[i] = tax;
+                            i++;
                         } else if (employee.getSalary() >= 350) {
                             tax = employee.getSalary() * 21 / 100;
+                            result[i] = tax;
+                            i++;
                         }
                         break;
-                    default:
-                        result.append("Введена не корректная система налогообложения\n");
-                        continue;
                 }
-                result.append("Налог сотрудника: " + employee.getLastFirstName() + " по системе налогообложения: " + taxSystem
-                        + " составляет: " + tax + " рублей.\n");
             }
         }
-        return result.length() == 0 ? "Такого сотрудника нет" : result.toString();
+        return result;
     }
 
-    public static String salaryIncrease(int bonusSalary, int bonusDepartmentNumber) {
-        StringBuilder result = new StringBuilder();
+    public void increaseSalary(int bonusSalary, int bonusDepartmentNumber) {
         for (Employee employee : employeeCard) {
             if (employee == null) {
                 break;
@@ -71,14 +72,10 @@ public class EmployeeBook {
                 if (employee.getDepartmentNumber() != bonusDepartmentNumber) {
                     continue;
                 } else {
-                    double increase = (employee.getSalary() * bonusSalary) / 100;
-                    employee.setSalary((int) (employee.getSalary() + increase));
-                    result.append("Повышение зарплаты сотрудника: " + employee.getLastFirstName() + " из отдела № "
-                            + employee.getDepartmentNumber() + " составляет: " + increase + " рублей.\n");
+                    employee.setSalary(employee.getSalary() + (employee.getSalary() * bonusSalary) / 100);
                 }
             }
         }
-        return result.toString();
     }
 
     public static String salaryHigher(int numberDepartment, int salaryFigure) {
@@ -125,7 +122,7 @@ public class EmployeeBook {
     public static boolean isEmployeeInArray(Employee employeeToCheck) {
         for (Employee employee : employeeCard) {
             if (employee != null && employee.equals(employeeToCheck)) {
-                System.out.println("Сравниваем "+employee +" и " +employeeToCheck);
+                System.out.println("Сравниваем " + employee + " и " + employeeToCheck);
                 return true;
             }
         }
@@ -153,18 +150,6 @@ public class EmployeeBook {
         return null;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
